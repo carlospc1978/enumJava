@@ -6,6 +6,8 @@ import java.util.Scanner;
 public class Principal {
     public static void main(String[] args) {
 
+        //todo detalhar o projeto no readme
+
         List<EnumPlanetas> planets = Arrays.asList(EnumPlanetas.values());
         planets.stream().forEach(enumPlanetas -> System.out.println(enumPlanetas));
 
