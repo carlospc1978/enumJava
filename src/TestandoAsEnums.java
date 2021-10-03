@@ -6,13 +6,14 @@ public class TestandoAsEnums {
         this.enumPlanetas = EnumPlanetas.valueOf(planetas);
     }
 
-    public void navegandoPelaGalaxia(){
+    public String navegandoPelaGalaxia(){
         switch (enumPlanetas){
             case MARTE:
-                System.out.println("Leve um casaco pois pode esfriar 😃");
+                return ("Leve um casaco pois pode esfriar 😃");
             case TERRA:
-                System.out.println("Muita vida por aqui");
+                return ("Muita vida por aqui");
         }
+        return "vazio";
     }
 
 }

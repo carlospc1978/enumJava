@@ -1,22 +1,27 @@
 import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
 public class Principal {
     public static void main(String[] args) {
-        // listar os valores possíveis para a enumeração:
-//        for (EnumPlanetas p : EnumPlanetas.values()) {
-//            System.out.printf("%s%n", p);
-//        }
+
+        List<EnumPlanetas> planets = Arrays.asList(EnumPlanetas.values());
+        planets.stream().forEach(enumPlanetas -> System.out.println(enumPlanetas));
 
         Scanner entrada = new Scanner(System.in);
         String planeta;
-        System.out.println("Para onde vamos viajar ?");
-        planeta = entrada.next().toUpperCase(Locale.ROOT);
+        System.err.println("Para onde vamos viajar ?");
+        try {
+            planeta = entrada.next().toUpperCase(Locale.ROOT);
+            TestandoAsEnums testandoAsEnums = new TestandoAsEnums(planeta);
+            System.out.println(testandoAsEnums.navegandoPelaGalaxia());
+        }catch (IllegalArgumentException e){
+            System.err.println("destino da viagem nao encontrado");
+        }
         entrada.close();
 
-        TestandoAsEnums testandoAsEnums = new TestandoAsEnums(planeta);
-        testandoAsEnums.navegandoPelaGalaxia();
+
 
 
     }
